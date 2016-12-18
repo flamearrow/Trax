@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		22024CCA1E06242A00DC684C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22024CC91E06242A00DC684C /* AppDelegate.swift */; };
-		22024CCC1E06242A00DC684C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22024CCB1E06242A00DC684C /* ViewController.swift */; };
 		22024CCF1E06242A00DC684C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22024CCD1E06242A00DC684C /* Main.storyboard */; };
 		22024CD11E06242A00DC684C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22024CD01E06242A00DC684C /* Assets.xcassets */; };
 		22024CD41E06242A00DC684C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22024CD21E06242A00DC684C /* LaunchScreen.storyboard */; };
+		22024CDD1E0625AD00DC684C /* GPXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22024CDC1E0625AD00DC684C /* GPXViewController.swift */; };
+		22024CDF1E06272500DC684C /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22024CDE1E06272500DC684C /* GPX.swift */; };
+		22024CE11E062B1900DC684C /* MKGPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22024CE01E062B1900DC684C /* MKGPX.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		22024CC61E06242A00DC684C /* Trax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22024CC91E06242A00DC684C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		22024CCB1E06242A00DC684C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		22024CCE1E06242A00DC684C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22024CD01E06242A00DC684C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22024CD31E06242A00DC684C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22024CD51E06242A00DC684C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22024CDC1E0625AD00DC684C /* GPXViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXViewController.swift; sourceTree = "<group>"; };
+		22024CDE1E06272500DC684C /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
+		22024CE01E062B1900DC684C /* MKGPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKGPX.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,24 @@
 		22024CC81E06242A00DC684C /* Trax */ = {
 			isa = PBXGroup;
 			children = (
-				22024CC91E06242A00DC684C /* AppDelegate.swift */,
-				22024CCB1E06242A00DC684C /* ViewController.swift */,
+				22024CDB1E06245600DC684C /* supporting files */,
 				22024CCD1E06242A00DC684C /* Main.storyboard */,
+				22024CDC1E0625AD00DC684C /* GPXViewController.swift */,
+				22024CDE1E06272500DC684C /* GPX.swift */,
+				22024CE01E062B1900DC684C /* MKGPX.swift */,
+			);
+			path = Trax;
+			sourceTree = "<group>";
+		};
+		22024CDB1E06245600DC684C /* supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				22024CC91E06242A00DC684C /* AppDelegate.swift */,
 				22024CD01E06242A00DC684C /* Assets.xcassets */,
 				22024CD21E06242A00DC684C /* LaunchScreen.storyboard */,
 				22024CD51E06242A00DC684C /* Info.plist */,
 			);
-			path = Trax;
+			name = "supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22024CCC1E06242A00DC684C /* ViewController.swift in Sources */,
+				22024CDD1E0625AD00DC684C /* GPXViewController.swift in Sources */,
+				22024CE11E062B1900DC684C /* MKGPX.swift in Sources */,
 				22024CCA1E06242A00DC684C /* AppDelegate.swift in Sources */,
+				22024CDF1E06272500DC684C /* GPX.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
