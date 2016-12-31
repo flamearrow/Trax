@@ -14,6 +14,7 @@
 		22024CDD1E0625AD00DC684C /* GPXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22024CDC1E0625AD00DC684C /* GPXViewController.swift */; };
 		22024CDF1E06272500DC684C /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22024CDE1E06272500DC684C /* GPX.swift */; };
 		22024CE11E062B1900DC684C /* MKGPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22024CE01E062B1900DC684C /* MKGPX.swift */; };
+		22F492301E17915600F3CE13 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F4922F1E17915600F3CE13 /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		22024CDC1E0625AD00DC684C /* GPXViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXViewController.swift; sourceTree = "<group>"; };
 		22024CDE1E06272500DC684C /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
 		22024CE01E062B1900DC684C /* MKGPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKGPX.swift; sourceTree = "<group>"; };
+		22F4922F1E17915600F3CE13 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				22024CDC1E0625AD00DC684C /* GPXViewController.swift */,
 				22024CDE1E06272500DC684C /* GPX.swift */,
 				22024CE01E062B1900DC684C /* MKGPX.swift */,
+				22F4922F1E17915600F3CE13 /* ImageViewController.swift */,
 			);
 			path = Trax;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 			files = (
 				22024CDD1E0625AD00DC684C /* GPXViewController.swift in Sources */,
 				22024CE11E062B1900DC684C /* MKGPX.swift in Sources */,
+				22F492301E17915600F3CE13 /* ImageViewController.swift in Sources */,
 				22024CCA1E06242A00DC684C /* AppDelegate.swift in Sources */,
 				22024CDF1E06272500DC684C /* GPX.swift in Sources */,
 			);
@@ -313,6 +317,7 @@
 				22024CDA1E06242A00DC684C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

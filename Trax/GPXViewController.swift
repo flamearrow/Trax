@@ -78,10 +78,44 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
+    // when the left image is clicked, start a segue to show the full screen image
+    // called when user tapped on annotation view's accessory buttons
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.leftCalloutAccessoryView {
+            performSegue(withIdentifier: Constants.ShowImageSegue, sender: view)
+        }
+    }
+    
+    // default impl fhr prepare for seque does nothing, we need to set required data by destination controller (ImageViewController in this case)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination.contentViewCotroller
+        let annotationView = sender as? MKAnnotationView
+        let waypoint = annotationView?.annotation as? GPX.Waypoint
+        
+        if segue.identifier == Constants.ShowImageSegue {
+            if let ivc = destination as? ImageViewController {
+                ivc.imageUrl = waypoint?.imageURL
+                ivc.title = waypoint?.name
+            }
+        }
+    }
+    
+    // constants
     private struct Constants {
         static let LeftCalloutFrame = CGRect(x: 0, y: 0, width: 59, height: 59)
         static let AnnotationViewReuseId = "wayPoint"
         static let ShowImageSegue = "showImage"
         static let EditUserWayPoint = "Edit waypoint"
+    }
+}
+
+extension UIViewController {
+    // if it's navication controoler, reteurn visibleviewController
+    var contentViewCotroller: UIViewController {
+        if let navcon = self as? UINavigationController {
+            return navcon.visibleViewController ?? navcon
+        } else {
+            return self
+        }
     }
 }

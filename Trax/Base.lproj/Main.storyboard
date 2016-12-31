@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="W2h-lZ-KfV">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Trax-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="GPXViewController" customModule="Trax" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,17 +22,74 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="MgR-q3-CV8" secondAttribute="trailing" id="L7Y-5t-ImO"/>
-                            <constraint firstItem="MgR-q3-CV8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="m2s-Hb-Tug"/>
-                            <constraint firstItem="MgR-q3-CV8" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="we0-T9-a5L"/>
-                            <constraint firstItem="MgR-q3-CV8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xXK-yP-q8J"/>
+                            <constraint firstItem="MgR-q3-CV8" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="8wb-4Z-ADG"/>
+                            <constraint firstItem="MgR-q3-CV8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="FhO-iC-FlL"/>
+                            <constraint firstItem="MgR-q3-CV8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RGg-kV-sYt"/>
+                            <constraint firstAttribute="trailing" secondItem="MgR-q3-CV8" secondAttribute="trailing" id="t39-IV-9ms"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Trax" id="a66-Rz-QFy"/>
                     <connections>
                         <outlet property="mapView" destination="MgR-q3-CV8" id="AIU-aj-H3S"/>
+                        <segue destination="cpt-Xb-nfN" kind="show" identifier="showImage" id="UFv-mx-Bnx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="38.23088455772114"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="2PU-9f-xFP">
+            <objects>
+                <viewController id="cpt-Xb-nfN" customClass="ImageViewController" customModule="Trax" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X7r-Ny-2J7"/>
+                        <viewControllerLayoutGuide type="bottom" id="9AA-aB-qYD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="69t-gd-Zn7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAy-sC-apg"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="UCM-aa-DSg">
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="RAy-sC-apg" secondAttribute="trailing" id="1cf-Dt-Kv0"/>
+                            <constraint firstItem="RAy-sC-apg" firstAttribute="centerY" secondItem="UCM-aa-DSg" secondAttribute="centerY" id="6k9-1H-T0g"/>
+                            <constraint firstItem="RAy-sC-apg" firstAttribute="top" secondItem="69t-gd-Zn7" secondAttribute="top" id="KIc-Zp-wqi"/>
+                            <constraint firstItem="RAy-sC-apg" firstAttribute="centerX" secondItem="UCM-aa-DSg" secondAttribute="centerX" id="MgY-hF-Xy0"/>
+                            <constraint firstItem="RAy-sC-apg" firstAttribute="bottom" secondItem="9AA-aB-qYD" secondAttribute="top" id="gdN-bR-tGJ"/>
+                            <constraint firstItem="RAy-sC-apg" firstAttribute="leading" secondItem="69t-gd-Zn7" secondAttribute="leading" id="riw-JD-Cby"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4xl-Bh-Gpz"/>
+                    <connections>
+                        <outlet property="scrollView" destination="RAy-sC-apg" id="eIr-Jx-5iV"/>
+                        <outlet property="spinner" destination="UCM-aa-DSg" id="dkk-dI-MuQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DWd-Xz-f3A" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2136.8000000000002" y="37.331334332833585"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="U66-w7-XOu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W2h-lZ-KfV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="roa-Wl-LbM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fNQ-da-C2n"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Li1-9A-yV1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
         </scene>
