@@ -17,6 +17,38 @@
             endingLineNumber = "119"
             landmarkName = "complete(success:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Trax.GPX.(complete in _A5A8BCA8AA1DF540A5052F94D3C3C8BB) (success : Swift.Bool) -&gt; ()"
+                  moduleName = "Trax"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/flamearrow/Desktop/ios/projects/Trax/Trax/Trax/GPX.swift"
+                  timestampString = "505038571.67835"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "14">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Trax.GPX.((complete in _A5A8BCA8AA1DF540A5052F94D3C3C8BB) (success : Swift.Bool) -&gt; ()).(closure #1)"
+                  moduleName = "Trax"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/flamearrow/Desktop/ios/projects/Trax/Trax/Trax/GPX.swift"
+                  timestampString = "505038571.679819"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,12 +90,12 @@
                   moduleName = "Trax"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/flamearrow/Desktop/ios/projects/Trax/Trax/Trax/GPXViewController.swift"
-                  timestampString = "505028340.932395"
+                  timestampString = "505038571.687412"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "114"
                   endingLineNumber = "114"
-                  offsetFromSymbolStart = "2455">
+                  offsetFromSymbolStart = "2462">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -73,12 +105,12 @@
                   moduleName = "Trax"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/flamearrow/Desktop/ios/projects/Trax/Trax/Trax/GPXViewController.swift"
-                  timestampString = "505028340.934694"
+                  timestampString = "505038571.6888"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "114"
                   endingLineNumber = "114"
-                  offsetFromSymbolStart = "2679">
+                  offsetFromSymbolStart = "2686">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -138,7 +170,7 @@
                   moduleName = "Trax"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/flamearrow/Desktop/ios/projects/Trax/Trax/Trax/GPXViewController.swift"
-                  timestampString = "505028340.946792"
+                  timestampString = "505038571.702785"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "17"
@@ -153,7 +185,7 @@
                   moduleName = "Trax"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/flamearrow/Desktop/ios/projects/Trax/Trax/Trax/GPXViewController.swift"
-                  timestampString = "505028340.948923"
+                  timestampString = "505038571.706769"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"

@@ -42,7 +42,7 @@
                     <connections>
                         <outlet property="mapView" destination="wJ9-TP-rWO" id="aV5-aG-jO9"/>
                         <segue destination="shd-wg-WTX" kind="show" identifier="showImage" id="zyu-Og-2v9"/>
-                        <segue destination="Ef5-ax-0Jb" kind="popoverPresentation" identifier="editWaypoint" popoverAnchorView="wJ9-TP-rWO" id="Uwd-2o-tGu">
+                        <segue destination="Ef5-ax-0Jb" kind="popoverPresentation" identifier="editWaypoint" popoverAnchorView="wJ9-TP-rWO" id="u1g-Us-rJQ">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                     </connections>
@@ -65,23 +65,23 @@
                         <viewControllerLayoutGuide type="bottom" id="41Q-yv-d0v"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KCW-51-Uis">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Fcp-dw-lN8">
-                                <rect key="frame" x="20" y="28" width="560" height="68"/>
+                                <rect key="frame" x="16" y="72" width="343" height="68"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kWY-m6-Xvg">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRh-Z6-Ymn">
-                                                <rect key="frame" x="0.0" y="0.0" width="88" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FR0-19-HJG">
-                                                <rect key="frame" x="96" y="0.0" width="464" height="30"/>
+                                                <rect key="frame" x="93" y="0.0" width="250" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="YYC-Pf-gMM"/>
                                                 </constraints>
@@ -91,16 +91,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="x20-xS-oE0">
-                                        <rect key="frame" x="0.0" y="38" width="560" height="30"/>
+                                        <rect key="frame" x="0.0" y="38" width="343" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNY-V9-2mb">
-                                                <rect key="frame" x="0.0" y="0.0" width="88" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xfa-ez-gGV">
-                                                <rect key="frame" x="96" y="0.0" width="464" height="30"/>
+                                                <rect key="frame" x="93" y="0.0" width="250" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -126,7 +126,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bo5-Kp-TEZ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="VNr-ni-0jO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="VNr-ni-0jO">
+                            <connections>
+                                <segue destination="GqM-BO-M6G" kind="unwind" unwindAction="updateUserWaypointWithSegue:" id="F42-jQ-c8F"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="infoTextField" destination="Xfa-ez-gGV" id="f2v-MI-dl2"/>
@@ -134,8 +138,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B72-Ct-p9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="GqM-BO-M6G" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2091" y="-273"/>
+            <point key="canvasLocation" x="2068" y="-47"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="gav-kc-pCk">
