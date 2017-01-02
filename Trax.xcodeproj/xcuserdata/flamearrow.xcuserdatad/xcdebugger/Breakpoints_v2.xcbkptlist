@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Trax/GPXViewController.swift"
-            timestampString = "504871982.486201"
+            timestampString = "505035042.299647"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "updateUserWaypoint(segue:)"
             landmarkType = "7">
          </BreakpointContent>

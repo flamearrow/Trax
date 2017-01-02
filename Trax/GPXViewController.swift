@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 
-class GPXViewController: UIViewController, MKMapViewDelegate {
+class GPXViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentationControllerDelegate {
     var gpxURL: NSURL? {
         didSet {
             if let url = gpxURL {
@@ -114,7 +114,9 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
             if let editableWaypoit = waypoint as? EditableWaypoint,
                 let ewvc = destination as? EditWaypointViewController {
                 if let ppc = ewvc.popoverPresentationController {
+                    // the anchor rect to pop over the view
                     ppc.sourceRect = annotationView!.frame
+                    ppc.delegate = self
                 }
                 ewvc.waypointToEdit = editableWaypoit
             }
@@ -154,6 +156,37 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
             mapView.selectAnnotation(waypoint!, animated: true)
         }
     }
+    
+    // when popover is dismised, re-select the waypoint
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        selectWaypoint((popoverPresentationController.presentedViewController as? EditWaypointViewController)?.waypointToEdit)
+    }
+    
+    // all the folloiwngs are used to adapt the popover views for iphone when its horizontal size is compact
+    func adaptivePresentationStyle(
+        for controller: UIPresentationController,
+        traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return traitCollection.horizontalSizeClass == .compact ? .overFullScreen : .none
+    }
+    
+    // when style is full/overfull(iphone), create a full screen navigationController, adds a blur background for the editing page
+    func presentationController(
+        _ controller: UIPresentationController,
+        viewControllerForAdaptivePresentationStyle style: UIModalPresentationStyle) -> UIViewController? {
+        if style == .fullScreen || style == .overFullScreen {
+            let navcon = UINavigationController(rootViewController: controller.presentedViewController)
+            let visualEffect = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+            visualEffect.frame = navcon.view.bounds
+            visualEffect.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            navcon.view.insertSubview(visualEffect, at: 0)
+            return navcon
+        } else {
+            return nil
+        }
+    }
+    
+    
+    
 }
 
 extension UIViewController {

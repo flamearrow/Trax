@@ -50,14 +50,9 @@ class EditWaypointViewController: UIViewController, UITextFieldDelegate {
     // like broadcast stateion in android
     // hook up to text observers so that when user finishes editing a text field, grab and save the value
     // remember to delete the observer when the view disappears
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        if let observer = ntfObserver {
-            NotificationCenter.default.removeObserver(observer)
-        }
-        if let observer = itfObserver {
-            NotificationCenter.default.removeObserver(observer)
-        }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopListeningToTextFeilds()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -65,8 +60,24 @@ class EditWaypointViewController: UIViewController, UITextFieldDelegate {
         listenToTextFields()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        // set the view to just big enough to wrap the layout
+        // uilayoutfittingompressedsize: make it as small as possible
+        preferredContentSize = view.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+    }
+    
     private var ntfObserver: NSObjectProtocol?
     private var itfObserver: NSObjectProtocol?
+    
+    private func stopListeningToTextFeilds() {
+        if let observer = ntfObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
+        if let observer = itfObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
+    }
     
     private func listenToTextFields() {
         let center = NotificationCenter.default
