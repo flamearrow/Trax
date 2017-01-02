@@ -57,11 +57,20 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
             view.annotation = annotation
         }
         
+        // make it draggable if it's editable - editable is created by long press
+        view.isDraggable = annotation is EditableWaypoint
+        
         view.leftCalloutAccessoryView = nil
+        
+        view.rightCalloutAccessoryView = nil
+        
         if let waypoint = annotation as? GPX.Waypoint {
             if waypoint.thumbnailURL != nil {
                 // don't pull image until user clicks it, handle the click in the following delegate
                 view.leftCalloutAccessoryView = UIButton(frame: Constants.LeftCalloutFrame)
+            }
+            if waypoint is EditableWaypoint {
+                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             }
         }
         
@@ -83,6 +92,9 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.leftCalloutAccessoryView {
             performSegue(withIdentifier: Constants.ShowImageSegue, sender: view)
+        } else if control == view.rightCalloutAccessoryView {
+            mapView.deselectAnnotation(view.annotation, animated: true)
+            performSegue(withIdentifier: Constants.EditUserWayPoint, sender: view)
         }
     }
     
@@ -97,15 +109,50 @@ class GPXViewController: UIViewController, MKMapViewDelegate {
                 ivc.imageUrl = waypoint?.imageURL
                 ivc.title = waypoint?.name
             }
+        } else if segue.identifier == Constants.EditUserWayPoint {
+            // when we want to edit, pass the current waypoint to EditableWaypointViewController
+            if let editableWaypoit = waypoint as? EditableWaypoint,
+                let ewvc = destination as? EditWaypointViewController {
+                if let ppc = ewvc.popoverPresentationController {
+                    ppc.sourceRect = annotationView!.frame
+                }
+                ewvc.waypointToEdit = editableWaypoit
+            }
         }
     }
     
+    // hook up long press to add a temporary waypoint
+    @IBAction func addWaypoint(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            // convert what user has clicked on the mapView to an actual coordinate
+            let coordinate = mapView.convert(sender.location(in: mapView), toCoordinateFrom: mapView)
+            // create a new waypoint and add to the mapView
+            let waypoint = EditableWaypoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            waypoint.name = "Dropped"
+            mapView.addAnnotation(waypoint)
+        }
+    }
     // constants
     private struct Constants {
         static let LeftCalloutFrame = CGRect(x: 0, y: 0, width: 59, height: 59)
         static let AnnotationViewReuseId = "wayPoint"
         static let ShowImageSegue = "showImage"
-        static let EditUserWayPoint = "Edit waypoint"
+        static let EditUserWayPoint = "editWaypoint"
+    }
+    
+    // Unwind
+    // *) must have the annotation and th method signature
+    // *) called when a segue returns to current viewController
+    // *) ctrl drag a button to viewController's exit to pull all availalbe unwind function
+    //  *) all unwind methods that're available would become selectable because you don't know which viewController it's returnining back to
+    @IBAction func updateUserWaypoint(segue: UIStoryboardSegue) {
+        selectWaypoint((segue.source.contentViewCotroller as? EditWaypointViewController)?.waypointToEdit)
+    }
+    
+    private func selectWaypoint(_ waypoint: GPX.Waypoint?) {
+        if waypoint != nil {
+            mapView.selectAnnotation(waypoint!, animated: true)
+        }
     }
 }
 
